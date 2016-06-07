@@ -46,13 +46,13 @@ cross-platform.
 
 Did you install Python 2 or 3? Why?  
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> I installed Python 2, as most "Intro to Python" texts recommend it. Python 3 supposedly doesn't have full compatibility yet with Python 2 modules, and may not for a while, so I am using Python 2.7.XX to be safe.
 
 ###Q2. Which Python Version Installed   
 
 How can you check the version of Python installed if you happen to be on an unfamiliar computer?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Typing python into the command prompt prints the version of Python being used.
 
  
 
