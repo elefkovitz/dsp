@@ -15,8 +15,17 @@ def match_ends(words):
     >>> match_ends(['aaa', 'be', 'abc', 'hello'])
     1
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    counter = 0
+    for x in words:
+        if len(x) >= 2 and x[0] == x[-1]:
+            counter = counter + 1
+        else:
+            pass
+    print counter
 
+match_ends(['aba', 'xyz', 'aa', 'x', 'bbb', 'xzzzx'])
+match_ends(['', 'x', 'xy', 'xyx', 'xx'])
 
 def front_x(words):
     """
@@ -32,8 +41,19 @@ def front_x(words):
     >>> front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark'])
     ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    xArray = []
+    yArray = []
 
+    for i in words:
+        if i[0] == 'x':
+            xArray.append(i)
+        if i[0] != 'x':
+            yArray.append(i)
+    print sorted(xArray) + sorted(yArray)
+
+
+front_x(['bbb', 'ccc', 'axx', 'xzz', 'xaa'])
 
 def sort_last(tuples):
     """
@@ -49,8 +69,16 @@ def sort_last(tuples):
     >>> sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)])
     [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    playList = list(tuples)
+    sortedList = sorted(playList, key=lambda x: x[-1])
+    print sortedList
 
+sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)])
+
+#This one also feels like a hacked solution, I have a feeling I definitely
+#did this one wrong, but not sure how I could have done it better.
+#What should I have used instead?
 
 def remove_adjacent(nums):
     """
@@ -68,8 +96,18 @@ def remove_adjacent(nums):
     >>> remove_adjacent([])
     []
     """
-    raise NotImplementedError
-
+    newList = []
+    newList.append(nums[0])
+    #raise NotImplementedError
+    for s in range(len(nums)):
+        #print s, nums[s]
+        if s >= 1 and nums[s] != nums[s-1]:
+            newList.append(nums[s])
+    print newList
+        #print s, nums[s]
+    #print nums
+remove_adjacent([3, 2, 3, 3, 3])
+remove_adjacent([2, 2, 3, 3, 3])
 
 def linear_merge(list1, list2):
     """
@@ -85,4 +123,8 @@ def linear_merge(list1, list2):
     >>> linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb'])
     ['aa', 'aa', 'aa', 'bb', 'bb']
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    mergedList = sorted(list1 + list2)
+    print mergedList
+
+linear_merge(['aa', 'xx', 'zz'], ['bb', 'cc'])
