@@ -18,7 +18,15 @@ def donuts(count):
     >>> donuts(99)
     'Number of donuts: many'
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    if count >= 10:
+        x = 'many'
+    else:
+        x = str(count)
+    print "Number of donuts: %s" % x
+
+donuts(8)
+donuts(12)
 
 
 def both_ends(s):
@@ -37,8 +45,15 @@ def both_ends(s):
     >>> both_ends('xyz')
     'xyyz'
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    if len(s) < 2:
+        x = s
+    else:
+        x = s[0] + s[1] + s[-2] + s[-1]
+    print x
 
+both_ends('hello')
+both_ends('xyz')
 
 def fix_start(s):
     """
@@ -56,8 +71,16 @@ def fix_start(s):
     >>> fix_start('donut')
     'donut'
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    #x = s[0]
+    editString = list(s)
+    for y in range(1, len(editString)):
+        if editString[y] == editString[0]:
+            editString[y] = "*"
+    print "".join(editString)
 
+fix_start('hello there')
+fix_start('donut')
 
 def mix_up(a, b):
     """
@@ -74,8 +97,14 @@ def mix_up(a, b):
     >>> mix_up('pezzy', 'firm')
     'fizzy perm'
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    aMix = b[0] + b[1] + a[2:]
+    bMix = a[0] + a[1] + b[2:]
 
+    print "".join(aMix) + " " + "".join(bMix)
+
+mix_up('gnash','sport')
+mix_up('pezzy', 'firm')
 
 def verbing(s):
     """
@@ -91,7 +120,20 @@ def verbing(s):
     >>> verbing('do')
     'do'
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+    sList = list(s)
+    if len(sList) < 3:
+        print s
+    elif sList[-3] + sList[-2] + sList[-1] == 'ing':
+        sList.append('ly')
+        print "".join(sList)
+    else:
+        sList.append('ing')
+        print "".join(sList)
+
+verbing('hail')
+verbing('swimming')
+verbing('do')
 
 
 def not_bad(s):
@@ -111,7 +153,23 @@ def not_bad(s):
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
     """
-    raise NotImplementedError
+    #raise NotImplementedError
+
+    if "not" in s:
+        notIndex = s.index("not")
+        x = s[s.index("not"):]
+        if "bad" in x:
+            badIndex = x.index("bad")
+            finalString = s[0:notIndex] + "good" + s[notIndex+badIndex+3:]
+            print finalString
+        else:
+            print s
+    else:
+        print s
+
+not_bad("Hey this is not so bad!")
+not_bad("This is not what you think, bad guy")
+not_bad("Hey this is bad so not!")
 
 
 def front_back(a, b):
@@ -130,4 +188,17 @@ def front_back(a, b):
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
     """
-    raise NotImplementedError
+
+    if len(a) % 2 == 0:
+        aRuler = len(a) / 2
+    else:
+        aRuler = (len(a) / 2) + 1
+
+    if len(b) % 2 == 0:
+        bRuler = len(b) / 2
+    else:
+        bRuler = (len(b) / 2) + 1
+    #raise NotImplementedError
+    print a[0:aRuler] + b[0:bRuler] + a[aRuler:] + b[bRuler:]
+
+front_back('Kitten', 'Donut')
